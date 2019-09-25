@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, FlatList, ScrollView } from "react-native";
+import BoardListItem from "./BoardListItem";
 export default class BoardList extends Component {
   static defaultProps = {
     board: [
@@ -10,7 +11,9 @@ export default class BoardList extends Component {
       }
     ]
   };
-  _renderBoard = () => {};
+  _renderBoard = ({ item, index, seperators }) => {
+    return <BoardListItem {...item} />;
+  };
 
   render() {
     return (
