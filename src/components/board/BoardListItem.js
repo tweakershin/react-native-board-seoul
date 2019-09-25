@@ -3,16 +3,14 @@ import { Text, View, TouchableOpacity } from "react-native";
 
 export default class BoardListItem extends Component {
   static defaultProps = {
-    item: {
-      name: "default title",
-      content: "default content.",
-      key: "-1"
-    }
+    name: "default title",
+    content: "default content.",
+    key: "-1"
   };
   render() {
     return (
-      <TouchableOpacity style={{ height: 20, padding: 5 }}>
-        <Text>{this.props.name}</Text>
+      <TouchableOpacity style={{ height: 40, padding: 5 }}>
+        <Text style={{ fontSize: 30 }}>{this.props.name}</Text>
       </TouchableOpacity>
     );
   }
