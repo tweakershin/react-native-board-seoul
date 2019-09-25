@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Text, View, FlatList, ScrollView } from "react-native";
-
 export default class BoardList extends Component {
   static defaultProps = {
     board: [
@@ -18,7 +17,10 @@ export default class BoardList extends Component {
       <ScrollView>
         <FlatList
           data={this.props.board}
-          renderItem={self._renderBoard.bind(this)}
+          renderItem={this._renderBoard.bind(this)}
+          ItemSeparatorComponent={({ highlighted, leadingItem }) => {
+            return <View style={{ borderBottomWidth: 1 }} />;
+          }}
         />
       </ScrollView>
     );
