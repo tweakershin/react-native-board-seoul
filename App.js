@@ -68,7 +68,7 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     Setting: {
-      screen: SettingScreen
+      screen: SettingStack
     }
   },
   {
