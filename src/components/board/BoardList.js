@@ -6,7 +6,8 @@ export default class BoardList extends Component {
     board: [
       {
         name: "아이템이 없습니다",
-        key: "0"
+        content: "아이템이 없습니다.",
+        key: "-1"
       }
     ]
   };
