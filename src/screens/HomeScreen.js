@@ -7,11 +7,12 @@ let board = [
   {
     title: "샘플 게시글1",
     content: "샘플 게시글 content1",
-    key: '1'
-  },{
+    key: "1"
+  },
+  {
     title: "샘플 게시글2",
     content: "샘플 게시글 content2",
-    key: '2'
+    key: "2"
   }
 ];
 
@@ -23,7 +24,7 @@ export default class HomeScreen extends Component {
 
         <Button title="글 작성" />
 
-        <BoardList />
+        <BoardList board={board} />
 
         <Text> textInComponent </Text>
       </View>
