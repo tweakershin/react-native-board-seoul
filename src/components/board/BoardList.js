@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, FlatList, ScrollView } from "react-native";
 
-import BoardListItem from './BoardListItem';
+import BoardListItem from "./BoardListItem";
 
 export default class BoardList extends Component {
   static defaultProps = {
@@ -14,24 +14,14 @@ export default class BoardList extends Component {
     ]
   };
 
-  _renderItem({item, index, seperator}){
-    return (
-      <BoardListItem {...item} />
-      // 
-      // <BoardListItem 
-      // title={item.title} 
-      // content={item.content}
-      // key={item.key} />
-    )
+  _renderItem({ item, index, seperator }) {
+    return <BoardListItem {...item} onPress={() => {}} />;
   }
 
   render() {
     return (
       <ScrollView style={{ flex: 1 }}>
-        <FlatList
-          data={this.props.board}
-          renderItem={this._renderItem}
-        />
+        <FlatList data={this.props.board} renderItem={this._renderItem} />
       </ScrollView>
     );
   }

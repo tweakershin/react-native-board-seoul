@@ -22,11 +22,11 @@ export default class HomeScreen extends Component {
       <View style={{ flex: 1, alignItems: "center" }}>
         <Text style={{ fontSize: 25 }}>홈</Text>
 
-        <Button title="글 작성" />
+        <View style={{ marginBottom: 30 }}>
+          <Button title="글 작성" />
+        </View>
 
         <BoardList board={board} />
-
-        <Text> textInComponent </Text>
       </View>
     );
   }

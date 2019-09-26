@@ -5,14 +5,17 @@ export default class BoardListItem extends Component {
   static defaultProps = {
     title: "",
     content: "",
-    key: ""
+    key: "",
+    onPress: function() {
+      alert("리스트가 없습니다.");
+    }
   };
 
   render() {
     return (
-      <View>
-        <Text>{this.props.title}</Text>
-      </View>
+      <TouchableOpacity onPress={this.props.onPress}>
+        <Text style={{ fontSize: 18 }}>{this.props.title}</Text>
+      </TouchableOpacity>
     );
   }
 }
