@@ -7,12 +7,21 @@ export default class BoardDetail extends Component {
   };
   render() {
     return (
-      <View>
-        <View>
+      <View style={{ flex: 1, width: "100%", padding: 20 }}>
+        <View style={{ marginTop: 50 }}>
           {/*제목*/}
-          <Text>{this.props.title}</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+            {this.props.title}
+          </Text>
         </View>
-        <View>
+        <View
+          style={{
+            borderWidth: 1,
+            flex: 1,
+            padding: 10,
+            marginTop: 20
+          }}
+        >
           {/*내용*/}
           <Text>{this.props.content}</Text>
         </View>

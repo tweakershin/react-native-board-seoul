@@ -17,13 +17,38 @@ let board = [
 ];
 
 export default class HomeScreen extends Component {
+  constructor(props) {
+    this.state = {
+      board: board,
+      lastKey: 3
+    };
+  }
+
+  createBoard(title, content) {
+    const item = {
+      title: title,
+      content: content,
+      key: String(this.state.lastKey)
+    };
+
+    this.setState({
+      board: this.state.board.concat([item]),
+      lastKey: this.state.lastKey + 1
+    });
+  }
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center" }}>
         <Text style={{ fontSize: 25 }}>홈</Text>
 
         <View style={{ marginBottom: 30 }}>
-          <Button title="글 작성" />
+          <Button
+            title="글 작성"
+            onPress={this.props.navigation.push("Create", {
+              createFunc: this.createBoard.bind(this)
+            })}
+          />
         </View>
 
         <View
@@ -33,7 +58,7 @@ export default class HomeScreen extends Component {
             borderTopWidth: 1
           }}
         >
-          <BoardList board={board} {...this.props} />
+          <BoardList board={this.state.board} {...this.props} />
         </View>
       </View>
     );
