@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, FlatList, ScrollView } from "react-native";
 
+import { withNavigation } from "react-navigation";
 import BoardListItem from "./BoardListItem";
 
 export default class BoardList extends Component {
@@ -15,10 +16,18 @@ export default class BoardList extends Component {
   };
 
   _renderItem({ item, index, seperator }) {
-    return <BoardListItem {...item} onPress={() => {}} />;
+    return (
+      <BoardListItem
+        {...item}
+        onPress={() => {
+          this.props.navigation.push("Detail", { item: item });
+        }}
+      />
+    );
   }
 
   render() {
+    // console.log(this.props.navigation);
     return (
       <ScrollView style={{ flex: 1 }}>
         <FlatList

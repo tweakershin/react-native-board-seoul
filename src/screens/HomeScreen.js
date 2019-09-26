@@ -33,7 +33,7 @@ export default class HomeScreen extends Component {
             borderTopWidth: 1
           }}
         >
-          <BoardList board={board} />
+          <BoardList board={board} {...this.props} />
         </View>
       </View>
     );
