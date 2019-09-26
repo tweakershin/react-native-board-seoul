@@ -18,6 +18,8 @@ let board = [
 
 export default class HomeScreen extends Component {
   constructor(props) {
+    super(props);
+
     this.state = {
       board: board,
       lastKey: 3
@@ -32,7 +34,7 @@ export default class HomeScreen extends Component {
     };
 
     this.setState({
-      board: this.state.board.concat([item]),
+      board: this.state.board.concat(item),
       lastKey: this.state.lastKey + 1
     });
   }
@@ -45,9 +47,11 @@ export default class HomeScreen extends Component {
         <View style={{ marginBottom: 30 }}>
           <Button
             title="글 작성"
-            onPress={this.props.navigation.push("Create", {
-              createFunc: this.createBoard.bind(this)
-            })}
+            onPress={() =>
+              this.props.navigation.push("Create", {
+                createFunc: this.createBoard.bind(this)
+              })
+            }
           />
         </View>
 
