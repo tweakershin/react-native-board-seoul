@@ -3,7 +3,7 @@ import { createStore, combineReducers } from "redux";
 import boardApp from "./board/reducers";
 
 const appReducer = combineReducers({
-  board: boardApp
+  boardApp: boardApp
 });
 const store = createStore(appReducer);
 

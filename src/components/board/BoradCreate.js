@@ -4,10 +4,10 @@ import { Text, View, TextInput, Button } from "react-native";
 export default class BoradCreate extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      titleInput: "",
-      contentInput: ""
-    };
+    // this.state = {
+    //   titleInput: "",
+    //   contentInput: ""
+    // };
   }
 
   submitBoard() {

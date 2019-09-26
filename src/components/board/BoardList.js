@@ -12,7 +12,8 @@ export default class BoardList extends Component {
         content: "게시글이 없습니다.",
         key: "0"
       }
-    ]
+    ],
+    navigation: ""
   };
 
   _renderItem({ item, index, seperator }) {
@@ -20,7 +21,10 @@ export default class BoardList extends Component {
       <BoardListItem
         {...item}
         onPress={() => {
-          this.props.navigation.push("Detail", { item: item });
+          // 추가
+          this.props.navigation.push("Detail");
+          // 삭제
+          // this.props.navigation.push("Detail", { item: item });
         }}
       />
     );

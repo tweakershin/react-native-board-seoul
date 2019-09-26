@@ -20,24 +20,26 @@ export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      board: board,
-      lastKey: 3
-    };
+    // 삭제
+    // this.state = {
+    //   board: board,
+    //   lastKey: 3
+    // };
   }
 
-  createBoard(title, content) {
-    const item = {
-      title: title,
-      content: content,
-      key: String(this.state.lastKey)
-    };
+  //  createBoard삭제
+  // createBoard(title, content) {
+  //   const item = {
+  //     title: title,
+  //     content: content,
+  //     key: String(this.state.lastKey)
+  //   };
 
-    this.setState({
-      board: this.state.board.concat(item),
-      lastKey: this.state.lastKey + 1
-    });
-  }
+  //   this.setState({
+  //     board: this.state.board.concat(item),
+  //     lastKey: this.state.lastKey + 1
+  //   });
+  // }
 
   render() {
     return (
@@ -47,11 +49,13 @@ export default class HomeScreen extends Component {
         <View style={{ marginBottom: 30 }}>
           <Button
             title="글 작성"
-            onPress={() =>
-              this.props.navigation.push("Create", {
-                createFunc: this.createBoard.bind(this)
-              })
-            }
+            // 삭제
+            //onPress={() =>
+            //  this.props.navigation.push("Create", {
+            //    createFunc: this.createBoard.bind(this)
+            // })
+            // }
+            onPress={() => this.props.navigation.push("Create")}
           />
         </View>
 
