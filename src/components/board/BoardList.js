@@ -27,12 +27,11 @@ export default class BoardList extends Component {
   }
 
   render() {
-    // console.log(this.props.navigation);
     return (
       <ScrollView style={{ flex: 1 }}>
         <FlatList
           data={this.props.board}
-          renderItem={this._renderItem}
+          renderItem={this._renderItem.bind(this)}
           ItemSeparatorComponent={obj => {
             return <View style={{ borderBottomWidth: 1 }} />;
           }}
