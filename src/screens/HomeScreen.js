@@ -26,7 +26,15 @@ export default class HomeScreen extends Component {
           <Button title="글 작성" />
         </View>
 
-        <BoardList board={board} />
+        <View
+          style={{
+            width: "100%",
+            flex: 1,
+            borderTopWidth: 1
+          }}
+        >
+          <BoardList board={board} />
+        </View>
       </View>
     );
   }

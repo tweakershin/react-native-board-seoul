@@ -21,7 +21,13 @@ export default class BoardList extends Component {
   render() {
     return (
       <ScrollView style={{ flex: 1 }}>
-        <FlatList data={this.props.board} renderItem={this._renderItem} />
+        <FlatList
+          data={this.props.board}
+          renderItem={this._renderItem}
+          ItemSeparatorComponent={obj => {
+            return <View style={{ borderBottomWidth: 1 }} />;
+          }}
+        />
       </ScrollView>
     );
   }
