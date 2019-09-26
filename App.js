@@ -55,7 +55,7 @@ const SettingStack = createStackNavigator(
 );
 SettingStack.navigationOptions = {
   title: "환경설정",
-  tabBarIcon: <Ionicons name={"ios-home"} size={20} color="#ff6666" />
+  tabBarIcon: <Ionicons name={"ios-settings"} size={20} color="#ff6666" />
 };
 
 const TabNavigator = createBottomTabNavigator(
