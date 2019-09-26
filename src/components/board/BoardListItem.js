@@ -1,3 +1,22 @@
+import React, { Component } from "react";
+import { Text, View, TouchableOpacity } from "react-native";
+
+export default class BoardListItem extends Component {
+  static defaultProps = {
+    title: "",
+    content: "",
+    key: ""
+  };
+
+  render() {
+    return (
+      <View>
+        <Text>{this.props.title}</Text>
+      </View>
+    );
+  }
+}
+
 // import React, { Component } from "react";
 // import { Text, View, TouchableOpacity } from "react-native";
 
