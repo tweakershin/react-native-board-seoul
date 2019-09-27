@@ -1,5 +1,15 @@
-import { SET_TITLE_INPUT, SET_CONTENT_INPUT } from "./actions";
-import { combineReducers } from "redux";
+import {
+  SET_TITLE_INPUT,
+  SET_CONTENT_INPUT,
+  CREATE_BOARD,
+  DELETE_BOARD,
+  EDIT_BOARD,
+  setTitleInput,
+  setContentInput,
+  createBoard,
+  deleteBoard,
+  editBoard
+} from "./actions";
 
 /*** 3. 초기 상태 정의 (defaultState) ***/
 const initialState = {

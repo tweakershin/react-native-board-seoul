@@ -4,6 +4,7 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { Ionicons } from "@expo/vector-icons";
+import { Provider } from "react-redux";
 
 import HomeScreen from "./src/screens/HomeScreen";
 import DetailScreen from "./src/screens/DetailScreen";
@@ -79,5 +80,9 @@ const TabNavigator = createBottomTabNavigator(
 const AppContainer = createAppContainer(TabNavigator);
 
 export default function App() {
-  return <AppContainer />;
+  return (
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
+  );
 }
