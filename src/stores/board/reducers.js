@@ -29,59 +29,92 @@ const initialState = {
   ],
   lastBoardId: 3
 };
+// import {
+//   SET_TITLE_INPUT,
+//   SET_CONTENT_INPUT,
+//   CREATE_BOARD,
+//   DELETE_BOARD,
+//   EDIT_BOARD,
+//   setTitleInput,
+//   setContentInput,
+//   createBoard,
+//   deleteBoard,
+//   editBoard
+// } from "./actions";
 
 /*** 4. REDUCER 정의 ***/
 function boardApp(state = initialState, action) {
-  // action ==> Action 객체
   switch (action.type) {
     case SET_TITLE_INPUT:
-      return Objcet.assign({}, state, {
+      return Object.assign({}, state, {
         titleInput: action.payload
       });
-    case SET_CONTENT_CONTENT:
+    case SET_CONTENT_INPUT:
       return Object.assign({}, state, {
         contentInput: action.payload
       });
-    // return { ...state, contentInput: action.payload };
-
     case CREATE_BOARD:
       return Object.assign({}, state, {
-        board: [
-          ...state.board,
-          {
-            key: String(key),
-            title: action.payload.title,
-            content: action.payload.content
-          }
-        ],
-        lastBoardId: state.lastBoardId + 1
+        board: state.board.concat(action.payload)
       });
-
-    case DELETE_BOARD:
-      return Object.assign({}, state, {
-        ...state,
-        board: state.board.filter(({ key }) => key !== action.payload.itemKey)
-      });
-
-    case EDIT_BOARD:
-      return Object.assign({}, state, {
-        ...state,
-        board: state.board.map(item => {
-          if (item.key == itemKey) {
-            return {
-              key: itemKey,
-              title: title,
-              content: content
-            };
-          } else {
-            return item;
-          }
-        })
-      });
-
     default:
       return state;
   }
 }
-
 export default boardApp;
+
+// /*** 4. REDUCER 정의 ***/
+// function boardApp(state = initialState, action) {
+//   // action ==> Action 객체
+//   switch (action.type) {
+//     case SET_TITLE_INPUT:
+//       return Objcet.assign({}, state, {
+//         titleInput: action.payload
+//       });
+//     case SET_CONTENT_CONTENT:
+//       return Object.assign({}, state, {
+//         contentInput: action.payload
+//       });
+//     // return { ...state, contentInput: action.payload };
+
+//     case CREATE_BOARD:
+//       return Object.assign({}, state, {
+//         board: [
+//           ...state.board,
+//           {
+//             key: String(key),
+//             title: action.payload.title,
+//             content: action.payload.content
+//           }
+//         ],
+//         lastBoardId: state.lastBoardId + 1
+//       });
+
+//     case DELETE_BOARD:
+//       return Object.assign({}, state, {
+//         ...state,
+//         board: state.board.filter(({ key }) => key !== action.payload.itemKey)
+//       });
+
+//     case EDIT_BOARD:
+//       return Object.assign({}, state, {
+//         ...state,
+//         board: state.board.map(item => {
+//           if (item.key == itemKey) {
+//             return {
+//               key: itemKey,
+//               title: title,
+//               content: content
+//             };
+//           } else {
+//             return item;
+//           }
+//         })
+//       });
+
+//     default:
+//       return state;
+//   }
+// }
+
+// export default boardApp;
