@@ -20,7 +20,10 @@ export default class BoardList extends Component {
       <BoardListItem
         {...item}
         onPress={() => {
-          this.props.navigation.push("Detail", { item: item });
+          this.props.navigation.push("Detail", {
+            item: item,
+            removeFunc: this.props.removeFunc
+          });
         }}
       />
     );
