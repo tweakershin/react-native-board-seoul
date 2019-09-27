@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View, Button } from "react-native";
 
 import BoardList from "../components/board/BoardList";
+import BoardListContainer from "@containers/BoardListContainer";
 
 let board = [
   {
@@ -89,12 +90,13 @@ export default class HomeScreen extends Component {
             borderTopWidth: 1
           }}
         >
-          <BoardList
+          <BoardListContainer />
+          {/*<BoardList
             board={this.state.board}
             removeFunc={this.removeBoard.bind(this)}
             editFunc={this.editBoard.bind(this)}
             {...this.props}
-          />
+          />*/}
         </View>
       </View>
     );
