@@ -55,7 +55,12 @@ function boardApp(state = initialState, action) {
       });
     case CREATE_BOARD:
       return Object.assign({}, state, {
-        board: state.board.concat(action.payload)
+        board: state.board.concat({
+          title: action.payload.title,
+          content: action.payload.content,
+          key: String(state.lastBoardId)
+        }),
+        lastBoardId: state.lastBoardId + 1
       });
     default:
       return state;

@@ -18,55 +18,6 @@ let board = [
 ];
 
 export default class HomeScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      board: board,
-      lastKey: 3
-    };
-  }
-
-  createBoard(title, content) {
-    const item = {
-      title: title,
-      content: content,
-      key: String(this.state.lastKey)
-    };
-
-    this.setState({
-      board: this.state.board.concat(item),
-      lastKey: this.state.lastKey + 1
-    });
-  }
-
-  editBoard(boardKey, title, content) {
-    const newBoard = this.state.board.map((value, index) => {
-      if (boardKey == value.key) {
-        return {
-          title: title,
-          content: content,
-          key: value.key
-        };
-      }
-      return value;
-    });
-
-    this.setState({ board: newBoard });
-  }
-
-  removeBoard(boardKey) {
-    const newBoard = this.state.board.filter((value, index) => {
-      if (value.key != boardKey) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-
-    this.setState({ board: newBoard });
-  }
-
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center" }}>
@@ -75,11 +26,7 @@ export default class HomeScreen extends Component {
         <View style={{ marginBottom: 30 }}>
           <Button
             title="글 작성"
-            onPress={() =>
-              this.props.navigation.push("Create", {
-                createFunc: this.createBoard.bind(this)
-              })
-            }
+            onPress={() => this.props.navigation.push("Create")}
           />
         </View>
 
