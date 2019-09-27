@@ -25,6 +25,15 @@ export default class DetailScreen extends Component {
         <Text style={{ fontSize: 25 }}>디테일</Text>
 
         <Button title="삭제" onPress={this.removeOnPress.bind(this)} />
+        <Button
+          title="수정"
+          onPress={() => {
+            this.props.navigation.push("Edit", {
+              item: this.props.navigation.getParam("item"),
+              editFunc: this.props.navigation.getParam("editFunc")
+            });
+          }}
+        />
 
         <BoardDetail title={this.state.title} content={this.state.content} />
       </View>
