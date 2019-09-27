@@ -30,6 +30,7 @@ export default class BoardEditScreen extends Component {
             onChangeText={text => this.setState({ title: text })}
           />
         </View>
+
         <View style={{ height: 300, borderWidth: 1, marginTop: 20 }}>
           {/* 내용 */}
           <TextInput

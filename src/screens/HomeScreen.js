@@ -92,9 +92,7 @@ export default class HomeScreen extends Component {
           <BoardList
             board={this.state.board}
             removeFunc={this.removeBoard.bind(this)}
-
             editFunc={this.editBoard.bind(this)}
-            
             {...this.props}
           />
         </View>
