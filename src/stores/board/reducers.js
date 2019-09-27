@@ -3,12 +3,7 @@ import {
   SET_CONTENT_INPUT,
   CREATE_BOARD,
   DELETE_BOARD,
-  EDIT_BOARD,
-  setTitleInput,
-  setContentInput,
-  createBoard,
-  deleteBoard,
-  editBoard
+  EDIT_BOARD
 } from "./actions";
 
 /*** 3. 초기 상태 정의 (defaultState) ***/
@@ -29,18 +24,6 @@ const initialState = {
   ],
   lastBoardId: 3
 };
-// import {
-//   SET_TITLE_INPUT,
-//   SET_CONTENT_INPUT,
-//   CREATE_BOARD,
-//   DELETE_BOARD,
-//   EDIT_BOARD,
-//   setTitleInput,
-//   setContentInput,
-//   createBoard,
-//   deleteBoard,
-//   editBoard
-// } from "./actions";
 
 /*** 4. REDUCER 정의 ***/
 function boardApp(state = initialState, action) {
@@ -62,6 +45,34 @@ function boardApp(state = initialState, action) {
         }),
         lastBoardId: state.lastBoardId + 1
       });
+
+    case EDIT_BOARD:
+      return Object.assign({}, state, {
+        board: state.board.map((value, index) => {
+          if (action.payload.key == value.key) {
+            return {
+              title: action.payload.title,
+              content: action.payload.content,
+              key: value.key
+            };
+          } else {
+            return value;
+          }
+        })
+      });
+
+    case DELETE_BOARD:
+      return Object.assign({}, state, {
+        board: state.board.filter((value, index) => {
+          console.log(value);
+          console.log(action);
+          if (value.key == action.payload.key) {
+            return false;
+          }
+          return true;
+        })
+      });
+
     default:
       return state;
   }

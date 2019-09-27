@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Text, View, Button } from "react-native";
 import BoardDetail from "../components/board/BoardDetail";
 
+import BoardDeleteButtonContainer from "../containers/BoardDeleteButtonContainer";
+
 export default class DetailScreen extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +26,11 @@ export default class DetailScreen extends Component {
       <View style={{ flex: 1, alignItems: "center" }}>
         <Text style={{ fontSize: 25 }}>디테일</Text>
 
-        <Button title="삭제" onPress={this.removeOnPress.bind(this)} />
+        {/*<Button title="삭제" onPress={this.removeOnPress.bind(this)} />*/}
+        <BoardDeleteButtonContainer
+          key={this.props.navigation.getParam("item").key}
+        />
+
         <Button
           title="수정"
           onPress={() => {
