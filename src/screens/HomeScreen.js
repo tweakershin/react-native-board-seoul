@@ -39,6 +39,33 @@ export default class HomeScreen extends Component {
     });
   }
 
+  editBoard(boardKey, title, content) {
+    const newBoard = this.state.board.map((value, index) => {
+      if (boardKey == value.key) {
+        return {
+          title: title,
+          content: content,
+          key: value.key
+        };
+      }
+      return value;
+    });
+
+    this.setState({ board: newBoard });
+  }
+
+  removeBoard(boardKey) {
+    const newBoard = this.state.board.filter((value, index) => {
+      if (value.key != boardKey) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    this.setState({ board: newBoard });
+  }
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center" }}>
@@ -62,7 +89,12 @@ export default class HomeScreen extends Component {
             borderTopWidth: 1
           }}
         >
-          <BoardList board={this.state.board} {...this.props} />
+          <BoardList
+            board={this.state.board}
+            removeFunc={this.removeBoard.bind(this)}
+            editFunc={this.editBoard.bind(this)}
+            {...this.props}
+          />
         </View>
       </View>
     );
